@@ -9,9 +9,16 @@ export enum ActionTypesEnum {
 
 export interface StateModel {
 	allCurrency?: ICurrency;
+	timeseries?: any;
 }
 
 export interface ActionModel {
 	type: ActionTypesEnum;
 	payload: any;
+}
+
+export enum DateTimeEnum {
+	year,
+	month,
+	halfYear,
 }

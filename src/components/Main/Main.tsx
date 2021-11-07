@@ -1,15 +1,20 @@
-import Currencies from "components/Currencies";
 import React, { SyntheticEvent, useEffect, useState } from "react";
+import Currencies from "components/Currencies";
+import TimeFrame from "components/TimeFrame";
 import { getAllCurrency } from "services";
 import { useStore } from "store";
-import { ActionTypesEnum } from "store/types";
+import { ActionTypesEnum, DateTimeEnum } from "store/types";
 import { Content } from "./Main.styles";
 
 const Main = () => {
-	const [selectors, setSelectors] = useState({
+	const [selectors, setSelectors] = useState<{
+		from: string;
+		to: string;
+	}>({
 		from: "",
 		to: "",
 	});
+	const [dateTime, setDiteTime] = useState<DateTimeEnum | undefined>();
 
 	const { from, to } = selectors;
 
@@ -29,10 +34,6 @@ const Main = () => {
 		});
 	}, []);
 
-	if (!allCurrency) {
-		return <p>LOADING....</p>;
-	}
-
 	const changeCurrency =
 		(type: "from" | "to") => (_: SyntheticEvent, value: string) =>
 			setSelectors({
@@ -47,6 +48,13 @@ const Main = () => {
 			to: prevState.from,
 		}));
 
+	const changeTimeFrame = (event: any) =>
+		setDiteTime(Number(event.target.name));
+
+	if (!allCurrency) {
+		return <p>LOADING....</p>;
+	}
+
 	return (
 		<Content>
 			<Currencies
@@ -56,6 +64,7 @@ const Main = () => {
 				to={to}
 				switchHandler={switchHandler}
 			/>
+			<TimeFrame changeTimeFrame={changeTimeFrame} dateTime={dateTime} />
 		</Content>
 	);
 };
