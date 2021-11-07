@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper, Header } from "./App.styles";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { blueGrey } from "@mui/material/colors";
+import Main from "components/Main";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				}}
 			/>
 			<Header>Exchange rates</Header>
+			<Main />
 		</Wrapper>
 	);
 }
