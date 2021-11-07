@@ -34,15 +34,13 @@ const Main = () => {
 	}
 
 	const changeCurrency =
-		(type: "from" | "to") => (_: SyntheticEvent, value: string) => {
-			console.log(value, type);
+		(type: "from" | "to") => (_: SyntheticEvent, value: string) =>
 			setSelectors({
 				...selectors,
 				[type]: value,
 			});
-		};
 
-	const switchHandler = () =>
+	const switchHandler = (): void =>
 		setSelectors((prevState) => ({
 			...prevState,
 			from: prevState.to,

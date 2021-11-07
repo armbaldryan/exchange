@@ -10,8 +10,10 @@ type Props = {
 	currencies: any;
 	from?: string;
 	to?: string;
-	handleChange: any;
-	switchHandler: any;
+	handleChange: (
+		types: "from" | "to"
+	) => (event: SyntheticEvent, value: any) => void;
+	switchHandler: () => void;
 };
 
 const Currencies = (props: Props) => {
