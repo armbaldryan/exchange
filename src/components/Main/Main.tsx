@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState, MouseEvent } from "react";
 import Currencies from "components/Currencies";
 import TimeFrame from "components/TimeFrame";
 import { getAllCurrency } from "services";
@@ -35,7 +35,7 @@ const Main = () => {
 	}, []);
 
 	const changeCurrency =
-		(type: "from" | "to") => (_: SyntheticEvent, value: string) =>
+		(type: "from" | "to") => (_: SyntheticEvent, value: string | null) =>
 			setSelectors({
 				...selectors,
 				[type]: value,
@@ -48,8 +48,8 @@ const Main = () => {
 			to: prevState.from,
 		}));
 
-	const changeTimeFrame = (event: any) =>
-		setDiteTime(Number(event.target.name));
+	const changeTimeFrame = (event: MouseEvent<HTMLElement>) =>
+		setDiteTime(Number((event.target as HTMLButtonElement).name));
 
 	if (!allCurrency) {
 		return <p>LOADING....</p>;

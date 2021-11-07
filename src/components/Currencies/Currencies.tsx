@@ -1,23 +1,26 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useMemo } from "react";
 
 import FormControl from "@mui/material/FormControl";
 import Autocomplete from "@mui/material/Autocomplete";
 import { CurrenciesWrapper, SwitchButton } from "./Currencies.styles";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import TextField from "@mui/material/TextField";
+import { ICurrency } from "store/types";
 
 type Props = {
-	currencies: any;
+	currencies: ICurrency;
 	from?: string;
 	to?: string;
 	handleChange: (
 		types: "from" | "to"
-	) => (event: SyntheticEvent, value: any) => void;
+	) => (event: SyntheticEvent, value: string | null) => void;
 	switchHandler: () => void;
 };
 
 const Currencies = (props: Props) => {
 	const { currencies, from, to, handleChange, switchHandler } = props;
+
+	const currencyOptions = useMemo(() => Object.keys(currencies), [currencies]);
 
 	if (currencies) {
 		return (
@@ -25,7 +28,7 @@ const Currencies = (props: Props) => {
 				<FormControl fullWidth>
 					<Autocomplete
 						onChange={handleChange("from")}
-						options={Object.keys(currencies)}
+						options={currencyOptions}
 						renderInput={(params) => <TextField {...params} label="From" />}
 					/>
 				</FormControl>
@@ -40,7 +43,7 @@ const Currencies = (props: Props) => {
 				<FormControl fullWidth>
 					<Autocomplete
 						onChange={handleChange("to")}
-						options={Object.keys(currencies)}
+						options={currencyOptions}
 						renderInput={(params) => <TextField {...params} label="To" />}
 					/>
 				</FormControl>
