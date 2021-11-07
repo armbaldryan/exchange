@@ -1,11 +1,18 @@
 import Currencies from "components/Currencies";
-import React, { useEffect } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import { getAllCurrency } from "services";
 import { useStore } from "store";
 import { ActionTypesEnum } from "store/types";
 import { Content } from "./Main.styles";
 
 const Main = () => {
+	const [selectors, setSelectors] = useState({
+		from: "",
+		to: "",
+	});
+
+	const { from, to } = selectors;
+
 	const {
 		state: { allCurrency },
 		dispatch,
@@ -26,17 +33,29 @@ const Main = () => {
 		return <p>LOADING....</p>;
 	}
 
-	const changeCurrency = () => {};
+	const changeCurrency =
+		(type: "from" | "to") => (_: SyntheticEvent, value: string) => {
+			console.log(value, type);
+			setSelectors({
+				...selectors,
+				[type]: value,
+			});
+		};
 
-	const switchHandler = () => {};
+	const switchHandler = () =>
+		setSelectors((prevState) => ({
+			...prevState,
+			from: prevState.to,
+			to: prevState.from,
+		}));
 
 	return (
 		<Content>
 			<Currencies
 				currencies={allCurrency}
 				handleChange={changeCurrency}
-				from={"USD"}
-				to={"AMD"}
+				from={from}
+				to={to}
 				switchHandler={switchHandler}
 			/>
 		</Content>

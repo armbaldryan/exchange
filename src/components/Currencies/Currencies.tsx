@@ -22,13 +22,13 @@ const Currencies = (props: Props) => {
 			<CurrenciesWrapper>
 				<FormControl fullWidth>
 					<Autocomplete
-						onChange={() => handleChange("from")}
+						onChange={handleChange("from")}
 						options={Object.keys(currencies)}
 						renderInput={(params) => <TextField {...params} label="From" />}
 					/>
 				</FormControl>
 				<SwitchButton
-					disabled={!from && !to}
+					disabled={!from || !to}
 					aria-label="CompareArrowsIcon"
 					color="primary"
 					onClick={switchHandler}
@@ -37,7 +37,7 @@ const Currencies = (props: Props) => {
 				</SwitchButton>
 				<FormControl fullWidth>
 					<Autocomplete
-						onChange={() => handleChange("to")}
+						onChange={handleChange("to")}
 						options={Object.keys(currencies)}
 						renderInput={(params) => <TextField {...params} label="To" />}
 					/>
