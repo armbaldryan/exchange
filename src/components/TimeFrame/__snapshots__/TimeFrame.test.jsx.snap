@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time Frame should render Time Frame 1`] = `
+<div>
+  <div
+    class="css-j7miut"
+    data-testid="time-frame-wrapper"
+  >
+    <button
+      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-qiyftw-MuiButtonBase-root-MuiButton-root"
+      data-testid="year"
+      name="0"
+      tabindex="0"
+      type="button"
+    >
+      Year
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-14aompz-MuiButtonBase-root-MuiButton-root"
+      data-testid="half-year"
+      name="2"
+      tabindex="0"
+      type="button"
+    >
+      6 Months
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-14aompz-MuiButtonBase-root-MuiButton-root"
+      data-testid="month"
+      name="1"
+      tabindex="0"
+      type="button"
+    >
+      Month
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

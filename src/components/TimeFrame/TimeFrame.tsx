@@ -12,8 +12,9 @@ const TimeFrame = (props: Props) => {
 	const { changeTimeFrame, dateTime } = props;
 
 	return (
-		<TimeFrameWrapper>
+		<TimeFrameWrapper data-testid="time-frame-wrapper">
 			<TimeButton
+				data-testid="year"
 				name={DateTimeEnum.year.toString()}
 				onClick={changeTimeFrame}
 				variant={dateTime === DateTimeEnum.year ? "contained" : "outlined"}
@@ -21,6 +22,7 @@ const TimeFrame = (props: Props) => {
 				Year
 			</TimeButton>
 			<TimeButton
+				data-testid="half-year"
 				name={DateTimeEnum.halfYear.toString()}
 				onClick={changeTimeFrame}
 				variant={dateTime === DateTimeEnum.halfYear ? "contained" : "outlined"}
@@ -28,6 +30,7 @@ const TimeFrame = (props: Props) => {
 				6 Months
 			</TimeButton>
 			<TimeButton
+				data-testid="month"
 				name={DateTimeEnum.month.toString()}
 				onClick={changeTimeFrame}
 				variant={dateTime === DateTimeEnum.month ? "contained" : "outlined"}
