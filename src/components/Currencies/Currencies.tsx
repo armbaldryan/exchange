@@ -30,6 +30,7 @@ const Currencies = (props: Props) => {
 						onChange={handleChange("from")}
 						options={currencyOptions}
 						renderInput={(params) => <TextField {...params} label="From" />}
+						value={from}
 					/>
 				</FormControl>
 				<SwitchButton
@@ -45,6 +46,7 @@ const Currencies = (props: Props) => {
 						onChange={handleChange("to")}
 						options={currencyOptions}
 						renderInput={(params) => <TextField {...params} label="To" />}
+						value={to}
 					/>
 				</FormControl>
 			</CurrenciesWrapper>

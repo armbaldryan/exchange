@@ -2,6 +2,16 @@ export interface ICurrency {
 	[key: string]: string;
 }
 
+export interface ITimeSeries {
+	[key: string]: {
+		[key: string]: {
+			[key: string]: {
+				[key: string]: number;
+			};
+		};
+	};
+}
+
 export enum ActionTypesEnum {
 	SET_ALL_CURRENCY,
 	ADD_TIMESERIES,
@@ -9,7 +19,7 @@ export enum ActionTypesEnum {
 
 export interface StateModel {
 	allCurrency?: ICurrency;
-	timeseries?: any;
+	timeseries: ITimeSeries;
 }
 
 export interface ActionModel {
