@@ -29,7 +29,14 @@ const Currencies = (props: Props) => {
 					<Autocomplete
 						onChange={handleChange("from")}
 						options={currencyOptions}
-						renderInput={(params) => <TextField {...params} label="From" />}
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								label="From"
+								data-testid="from"
+								aria-label="from"
+							/>
+						)}
 						value={from}
 					/>
 				</FormControl>
@@ -45,7 +52,9 @@ const Currencies = (props: Props) => {
 					<Autocomplete
 						onChange={handleChange("to")}
 						options={currencyOptions}
-						renderInput={(params) => <TextField {...params} label="To" />}
+						renderInput={(params) => (
+							<TextField {...params} label="To" data-testid="to" />
+						)}
 						value={to}
 					/>
 				</FormControl>
